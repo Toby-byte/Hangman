@@ -132,9 +132,11 @@ public class Hangman_logic {
                 blank.add("_");
             }
             // Laver blank om til en string
+            // denne er brugt som reference https://newbedev.com/python-convert-list-string-to-string-java-code-example
             System.out.println(blank.stream().map(Object::toString)
                     .collect(Collectors.joining("")));
-
+            
+            // denne er brugt som reference https://newbedev.com/python-convert-list-string-to-string-java-code-example
             String newWord = word.stream().map(Object::toString)
                     .collect(Collectors.joining(""));
 
@@ -152,7 +154,11 @@ public class Hangman_logic {
                     // hvis brugers input er ligmed hvad der er inde i ord
                     if (userGuess.contains(word.get(word.indexOf(userGuess)))) {
                         int newIndex = 0;
+                        // dette forloop finder mægnden af bogstaver i ordet
+                        // og køre det antal gange som der er bogstaver i ordet
                         for (int i = 0 ; i < findSameLetterInWord(newWord,userGuess); i++) {
+                            // loopet køre først en gang og setter det første bogstav i blank
+                            // Et nyt index bliver sat og det andet bogstav bliver fundet og sat
                             for (int j = newIndex; j < word.size(); j++) {
                                 if (String.valueOf(newWord.charAt(j)).equals(userGuess)) {
                                     blank.set(j, word.get(word.indexOf(userGuess)));
@@ -161,6 +167,8 @@ public class Hangman_logic {
                                 }
                             }
                         }
+                        // derefter bruges denne til at lave ArrayList om til String
+                        // denne er brugt som reference https://newbedev.com/python-convert-list-string-to-string-java-code-example
                         System.out.println(blank.stream().map(Object::toString)
                                 .collect(Collectors.joining("")));
                     }
