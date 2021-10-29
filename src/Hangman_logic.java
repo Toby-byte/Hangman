@@ -161,7 +161,8 @@ public class Hangman_logic {
                                 }
                             }
                         }
-                        System.out.println(blank);
+                        System.out.println(blank.stream().map(Object::toString)
+                                .collect(Collectors.joining("")));
                     }
 
                     else {
